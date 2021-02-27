@@ -1,32 +1,45 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
 
+//import the custom hooks
+import { useFetch } from "../../hooks/useFetch"
 
-//create a component to fetch the data from the API
-//and then display it in a list
-//uses the useEffect hook
+//import the custom components we'll use
+import Date from './Date'
+import Loading from "./Loading"
+
+//import testing code
+import PropTypes from "prop-types"
+
 
 export default function FetchAndList({ endpoint }) {
-    const [data, setData] = useState([])
+    //our three states are loading, error, data
+    const { loading, error, data } = useFetch(endpoint)
 
-    useEffect( () => {
-        fetch(endpoint)
-            .then(res => res.json())
-            .then(json => setData(json))
-    }, [endpoint])
+    //return the UI
+    //need to be expressed as an executed function
+    //so we can code the logic in javascript
 
-    //TODO: format this ugly list
-    return (
-        <ul>
-            {data.map(e => (
-                <li key = {e.timestamp}>{e.timestamp} : {e.amount} </li>
-            ))}
-        </ul>
-    )
-}
+    return (() => {
+        if (loading) return <Loading />
 
+        //if we're still in the loading state and there's an error, then tell user
+        if (loading || error) return <p>Oops! Something went wrong: {error}</p>
+
+        //we've made it!
+        if (!loading && !error)
+            //TODO: format this ugly list
+            //TODO: probably should be its own component
+            return (
+                <ul>
+                    {data.map(e => (
+                     <li key = {e.timestamp}>  <Date dateString={e.timestamp}  />: {e.amount} </li>
+                    ))}
+                </ul>
+            )
+    })()
+}//FetchAndList
+
+//test
 FetchAndList.propTypes = {
     endpoint: PropTypes.string.isRequired
 }
-
-

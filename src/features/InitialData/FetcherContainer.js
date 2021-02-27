@@ -39,7 +39,7 @@ export default function FetcherContainer() {
     //I'd probably factor all of this differently...two different functions
 /*
     TODO: using a ternary operator to indicate whether to include the FetchAndList
-    this is going to be problematic in the working page because of layout issues
+    as is, this is going to be problematic in the working page because of layout issues
 */
     return (
         <section>
