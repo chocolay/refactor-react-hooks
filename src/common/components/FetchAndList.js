@@ -15,6 +15,7 @@ export default function FetchAndList({ endpoint }) {
             .then(json => setData(json))
     }, [endpoint])
 
+    //TODO: format this ugly list
     return (
         <ul>
             {data.map(e => (

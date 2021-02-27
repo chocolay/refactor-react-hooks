@@ -8,7 +8,7 @@ export default function SelectInput({ changer, id, label, options }) {
     return (
         <>
             <label htmlFor = { id }>{ label }</label>
-            <select id = { id } onChange={changer}>
+            <select id = { id } onChange={ changer }>
                 {options.map(opt => (
                     <option key={ opt.value } value = { opt.value }>
                         { opt.label }
