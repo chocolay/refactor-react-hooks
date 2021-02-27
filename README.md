@@ -33,3 +33,12 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified, and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+
+### Milestone 1
+1. Cloned the base repo (obviously)
+2. Created an HTML select component with React... see /src/common/components/SelectInput.js
+3. Created a React component to fetch the data ... see /src/common/components/FetchAndList.js
+4. Create a container to combine the select & data fetching... see src/features/InitialData/FetcherContainer.js
+
+
