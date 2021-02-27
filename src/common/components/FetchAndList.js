@@ -23,7 +23,7 @@ export default function FetchAndList({ endpoint }) {
         if (loading) return <Loading />
 
         //if we're still in the loading state and there's an error, then tell user
-        if (loading || error) return <p>Oops! Something went wrong: {error}</p>
+        if (loading || error) return <p>The data was not returned due to this error: {error}</p>
 
         //we've made it!
         if (!loading && !error)
