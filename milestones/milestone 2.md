@@ -4,10 +4,10 @@
     . error 
     . success
 
-See `src/hooks/useFetch.js`
+See `src/hooks/useFetch.js` for how they're handled in the custom hook.
 
-The ```reducer```: based on a response from ```fetch```, send a ```dispatch```
-that indicates the effect we want. 
+The ```reducer```:
+ based on a response from ```fetch```, send a ```dispatch``` that indicates the effect we want on the states. 
 
 An action from ```fetch``` may alter more than one state.
 
